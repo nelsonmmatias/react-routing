@@ -1,9 +1,11 @@
-import { useNavigate } from "react-router-dom";
 import "./products.css";
 import { FC } from "react";
 import { ProductData } from "../types/types";
+import { useNavigate } from "react-router-dom";
 
-export const Products: FC = () => {
+const Products: FC = () => {
+  const navigate = useNavigate();
+
   const productList: ProductData[] = [
     {
       id: 1,
@@ -32,10 +34,8 @@ export const Products: FC = () => {
     },
   ];
 
-  const navigate = useNavigate();
-
-  // Handle navigation and pass product details via state
-  const handleProductClick = (product: ProductData) => {
+  const handleClick = (product: ProductData) => {
+    // we can pass some state to the navigation
     navigate(`/product/${product.id}`, { state: { product } });
   };
 
@@ -48,7 +48,9 @@ export const Products: FC = () => {
             <img src={product.image} alt={product.name} />
             <h2>{product.name}</h2>
             <p>{product.description}</p>
-            <button onClick={() => handleProductClick(product)}>
+            <button
+              onClick={() => handleClick(product)}
+            >
               View Details
             </button>
           </div>
@@ -57,3 +59,5 @@ export const Products: FC = () => {
     </div>
   );
 };
+
+export default Products;

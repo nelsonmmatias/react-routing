@@ -1,19 +1,18 @@
 import { FC } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { ProductData } from "../types/types";
-import "./product.css";
 
-export const Product: FC = () => {
+const Product: FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
+  // using location state to get the product
   const product = location.state?.product as ProductData | undefined;
 
   if (!product) {
     return <p>Product not found!</p>;
   }
 
-  // Navigate back to the products page
   const handleBackClick = () => {
     navigate("/products");
   };
@@ -36,3 +35,5 @@ export const Product: FC = () => {
     </div>
   );
 };
+
+export default Product;

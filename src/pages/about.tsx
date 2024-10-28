@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-export const About: FC = () => {
+const About: FC = () => {
   return (
     <div>
       <h1>About us</h1>
@@ -27,3 +27,5 @@ export const About: FC = () => {
     </div>
   );
 };
+
+export default About;

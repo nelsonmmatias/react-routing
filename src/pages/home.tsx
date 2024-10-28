@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-export const Home: FC = () => {
+const Home: FC = () => {
   return (
     <div>
       <h1>Welcome to Volkswagen Digital Solutions</h1>
@@ -37,3 +37,5 @@ export const Home: FC = () => {
     </div>
   );
 };
+
+export default Home;
